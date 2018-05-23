@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+<div>
+{{range $index, $region := .}}
+    <h1>{{$region.Name}} Region</h1>
+    {{range $index, $city := $region.Cities}}
+    <div>
+        <h3>City: {{$city.Name}}</h3>
+        {{range $index, $zipcode := $city.ZipCodes}}
+        <div>
+            <h5>ZipCode: {{$zipcode.Code}}<h5>
+            <ul>
+                {{range $index, $hotel := $zipcode.Hotels}}
+                <li>
+                    <div>{{$hotel.Name}}</div>
+                    <div>{{$hotel.Address}}</div>
+                </li>
+                {{end}}
+            </ul>
+        </div>
+        {{end}}
+    </div>
+    {{end}}
+{{end}}
+</div>
+
+</body>
+</html>
