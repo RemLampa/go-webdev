@@ -6,11 +6,42 @@
 </head>
 <body>
 
+<div>
 {{range .}}
-
-<!-- PUT YOUR CODE HERE TO SHOW THE DATA-->
-
+    <h1>Academic Year: {{.AcaYear}}</h1>
+    <div>
+        <h3>Fall Courses:</h3>
+            <table>
+                <th>
+                    <td>Number</td>
+                    <td>Name</td>
+                    <td>Units</td>
+                <th>
+                {{range $index, $course := .Fall.Courses}}
+                <tr>
+                    <td>{{$course.Number}}</td>
+                    <td>{{$course.Name}}</td>
+                    <td>{{$course.Units}}</td>
+                </tr>
+                {{end}}
+            </table>
+        <h3>Spring Courses:</h3>
+            <table>
+                <th>
+                    <td>Number</td>
+                    <td>Name</td>
+                    <td>Units</td>
+                <th>
+                {{range $index, $course := .Spring.Courses}}
+                <tr>
+                    <td>{{$course.Number}}</td>
+                    <td>{{$course.Name}}</td>
+                    <td>{{$course.Units}}</td>
+                </tr>
+                {{end}}
+            </table>
+    </div>
 {{end}}
-
+</div>
 </body>
 </html>
