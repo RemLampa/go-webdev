@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+<div>
+{{range $index, $restaurant := .}}
+<h1>{{$restaurant.Name}}</h1>
+    {{range $index, $menu := $restaurant.MenuList}}
+        <h2>{{$menu.Name}}</h2>
+        <ul>
+        {{range $index, $item := $menu.Items}}
+            <li>
+                <h4>{{$item.Name}}</h4>
+                <div>${{printf "%.2f" $item.Price}}</div>
+            </li>
+        {{end}}
+        </ul>
+    {{end}}
+{{end}}
+</div>
+
+</body>
+</html>
