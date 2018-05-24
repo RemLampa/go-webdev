@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+<div>
+    <ul>
+    {{range $index, $stockPrice := .}}
+        <li>
+            <h3>{{$stockPrice.Date}}</h3>
+            <div>Open: ${{printf "%.2f" $stockPrice.Open}}</div>
+            <div>High: ${{printf "%.2f" $stockPrice.High}}</div>
+            <div>Low: ${{printf "%.2f" $stockPrice.Low}}</div>
+            <div>Close: ${{printf "%.2f" $stockPrice.Close}}</div>
+            <div>Volume: {{$stockPrice.Volume}}</div>
+            <div>AdjClose: ${{printf "%.2f" $stockPrice.AdjClose}}</div>
+        </li>
+    {{end}}
+    </ul>
+</div>
+
+</body>
+</html>
