@@ -26,9 +26,9 @@ func main() {
 
 	http.Handle("/", handler)
 
-	http.HandleFunc("/dog", http.HandlerFunc(dogHandler))
+	http.Handle("/dog", http.HandlerFunc(dogHandler))
 
-	http.HandleFunc("/me", http.HandlerFunc(meHandler))
+	http.Handle("/me", http.HandlerFunc(meHandler))
 
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
